@@ -1,0 +1,63 @@
+#זהו הטופס לכניסת משתמשים, עם שדות לדוא"ל וסיסמה בלבד.
+
+
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>כניסה</title>
+    <style>
+        body {
+            background-color: #FFC0CB; /* צבע ורוד בהיר */
+            font-family: Calibri, sans-serif; /* פונט Calibri */
+            direction: rtl; /* כיוון טקסט מימין לשמאל */
+            text-align: right; /* יישור טקסט לימין */
+        }
+
+        form {
+            max-width: 300px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold; /* הופך את הכיתוב למודגש */
+            margin-bottom: 5px;
+        }
+
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+            text-align: right; /* יישור תוכן השדה לימין */
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #FF69B4; /* צבע ורוד */
+            border: none;
+            cursor: pointer;
+            color: white; /* צבע טקסט לבן */
+            font-weight: bold; /* הופך את הטקסט למודגש */
+        }
+    </style>
+</head>
+<body>
+    <h1>כניסה למשתמשת קיימת</h1>
+    <form action="/login" method="post">
+        <label for="email">מייל:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="password">סיסמה:</label>
+        <input type="password" id="password" name="password" required>
+
+        <input type="submit" value="כניסה">
+    </form>
+</body>
+</html>
+
