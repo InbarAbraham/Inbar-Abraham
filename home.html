@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        body {
+            background-color: #FFC0CB; /* Blush color */
+            font-family: Calibri, sans-serif; /* Set font to Calibri */
+            direction: rtl; /* Text direction from right to left */
+            text-align: right; /* Align text to the right */
+        }
+
+        form {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            background-color: #FFC0CB; /* Blush color */
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold; /* Make labels bold */
+        }
+
+        input[type="text"],
+        input[type="file"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        textarea {
+            height: 100px;
+        }
+
+        input[type="submit"] {
+            background-color: #FF69B4; /* Hot pink color */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 10px 0;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #FF1493; /* Deep pink color on hover */
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 4px;
+        }
+
+        img {
+            width: 200px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <h1>פרסמי גבר חדש</h1>
+    <form action="/home" method="post" enctype="multipart/form-data">
+        <label for="name">שם פרטי:</label>
+        <input type="text" id="name" name="name" required><br>
+
+        <label for="age">גיל:</label>
+        <input type="text" id="age" name="age" required><br>
+
+        <label for="city">עיר:</label>
+        <select id="city" name="city" required>
+            <option value="אום אל-פחם">אום אל-פחם</option>
+            <option value="אופקים">אופקים</option>
+            <option value="אור יהודה">אור יהודה</option>
+            <option value="אור עקיבא">אור עקיבא</option>
+            <option value="אור הנר ">אור הנר </option>
+            <option value="אילת">אילת</option>
+            <option value="אלומות">אלומות </option>
+            <option value="אלעד">אלעד</option>
+            <option value="אלון שבות">אלון שבות</option>
+            <option value="אלי-עד">אלי-עד</option>
+            <option value="אליכין">אליכין </option>
+            <option value="אלישמע ">אלישמע </option>
+            <option value="אלקנה">אלקנה</option>
+            <option value="אמונים">אמונים</option>
+            <option value="אפיקים">אפיקים</option>
+            <option value="אפק">אפק</option>
+            <option value="אריאל">אריאל</option>
+            <option value="אשדוד">אשדוד</option>
+            <option value="אשחר ">אשחר </option>
+            <option value="אשקלון">אשקלון</option>
+            <option value="איילת השחר ">איילת השחר </option>
+            <option value="באקה אל-גרבייה">באקה אל-גרבייה</option>
+            <option value="באר שבע">באר שבע</option>
+            <option value="באר טוביה ">באר טוביה </option>
+            <option value="בארי ">בארי </option>
+            <option value="בית אל">בית אל</option>
+            <option value="בית גוברין ">בית גוברין </option>
+            <option value="בית דגן ">בית דגן </option>
+            <option value="בית העמק ">בית העמק </option>
+            <option value="בית השיטה ">בית השיטה </option>
+            <option value="בית שאן">בית שאן</option>
+            <option value="בית שמש">בית שמש</option>
+            <option value="ביתר עילית">ביתר עילית</option>
+            <option value="בני ברק">בני ברק</option>
+            <option value="בני דרור ">בני דרור </option>
+            <option value="בני עי"ש ">בני עי"ש </option>
+            <option value="בנימינה ">בנימינה </option>
+            <option value="בת ים">בת ים</option>
+            <option value="גבעת ברנר ">גבעת ברנר </option>
+            <option value="גבעת שמואל">גבעת שמואל</option>
+            <option value="גבעתיים">גבעתיים</option>
+            <option value="גדרה ">גדרה </option>
+            <option value="גזר ">גזר </option>
+            <option value="גן יבנה ">גן יבנה </option>
+            <option value="גן שמואל ">גן שמואל </option>
+            <option value="גני תקווה ">גני תקווה </option>
+            <option value="גת ">גת </option>
+            <option value="דגניה א' ">דגניה א' </option>
+            <option value="דגניה ב' ">דגניה ב' </option>
+            <option value="דימונה">דימונה</option>
+            <option value="דלית אל-כרמל ">דלית אל-כרמל </option>
+            <option value="דן ">דן </option>
+            <option value="דברת ">דברת </option>
+            <option value="הוד השרון">הוד השרון</option>
+            <option value="הרצליה">הרצליה</option>
+            <option value="הרדוף ">הרדוף </option>
+            <option value="העוגן ">העוגן </option>
+            <option value="הגושרים ">הגושרים </option>
+            <option value="ורד הגליל ">ורד הגליל </option>
+            <option value="וולפסון ">וולפסון </option>
+            <option value="זכרון יעקב ">זכרון יעקב </option>
+            <option value="זיקים ">זיקים </option>
+            <option value="זמר ">זמר </option>
+            <option value="זרזיר ">זרזיר </option>
+            <option value="חדרה">חדרה</option>
+            <option value="חולון">חולון</option>
+            <option value="חיפה">חיפה</option>
+            <option value="חצור הגלילית ">חצור הגלילית </option>
+            <option value="חוקוק ">חוקוק </option>
+            <option value="חניתה ">חניתה </option>
+            <option value="חברון ">חברון </option>
+            <option value="טבריה">טבריה</option>
+            <option value="טייבה">טייבה</option>
+            <option value="טירה">טירה</option>
+            <option value="טירת כרמל">טירת כרמל</option>
+            <option value="טמרה">טמרה</option>
+            <option value="יבנה">יבנה</option>
+            <option value="יבנאל ">יבנאל </option>
+            <option value="יגור ">יגור </option>
+            <option value="יהוד-מונוסון">יהוד-מונוסון</option>
+            <option value="יוטבתה ">יוטבתה </option>
+            <option value="יכיני ">יכיני </option>
+            <option value="יקום ">יקום </option>
+            <option value="יקנעם עילית">יקנעם עילית</option>
+            <option value="ירושלים">ירושלים</option>
+            <option value="כפר יונה">כפר יונה</option>
+            <option value="כפר סבא">כפר סבא</option>
+            <option value="כפר קאסם">כפר קאסם</option>
+            <option value="כפר בלום ">כפר בלום </option>
+            <option value="כפר עציון ">כפר עציון </option>
+            <option value="כפר ורדים ">כפר ורדים </option>
+            <option value="כרמיאל">כרמיאל</option>
+            <option value="כינרת ">כינרת </option>
+            <option value="כינרת ">כינרת </option>
+            <option value="לבון ">לבון </option>
+            <option value="להבות הבשן ">להבות הבשן </option>
+            <option value="לוד">לוד</option>
+            <option value="לחמן ">לחמן </option>
+            <option value="מגאר ">מגאר </option>
+            <option value="מגדל ">מגדל </option>
+            <option value="מגדל העמק">מגדל העמק</option>
+            <option value="מגשימים ">מגשימים </option>
+            <option value="מודיעין-מכבים-רעות">מודיעין-מכבים-רעות</option>
+            <option value="מטולה ">מטולה </option>
+            <option value="מכמנים ">מכמנים </option>
+            <option value="מעלות תרשיחא">מעלות תרשיחא</option>
+            <option value="מעגן ">מעגן </option>
+            <option value="מעוז חיים ">מעוז חיים </option>
+            <option value="מעונה ">מעונה </option>
+            <option value="מפלסים ">מפלסים </option>
+            <option value="מצפה רמון">מצפה רמון</option>
+            <option value="מרום גולן ">מרום גולן </option>
+            <option value="משמר העמק ">משמר העמק </option>
+            <option value="משמר הנגב ">משמר הנגב </option>
+            <option value="נהריה">נהריה</option>
+            <option value="נס ציונה">נס ציונה</option>
+            <option value="נשר">נשר</option>
+            <option value="נתיבות">נתיבות</option>
+            <option value="נתניה">נתניה</option>
+            <option value="נתיב הל"ה ">נתיב הל"ה </option>
+            <option value="נתיב השיירה ">נתיב השיירה </option>
+            <option value="נתיב העשרה ">נתיב העשרה </option>
+            <option value="עומר ">עומר </option>
+            <option value="עפולה">עפולה</option>
+            <option value="עכו">עכו</option>
+            <option value="ערד">ערד</option>
+            <option value="פתח תקווה">פתח תקווה</option>
+            <option value="צור יצחק ">צור יצחק </option>
+            <option value="צור משה ">צור משה </option>
+            <option value="צפת">צפת</option>
+            <option value="גלויות">גלויות</option>
+            <option value="קדימה-צורן ">קדימה-צורן </option>
+            <option value="קדרים ">קדרים </option>
+            <option value="קריית ארבע">קריית ארבע</option>
+            <option value="קריית אתא">קריית אתא</option>
+            <option value="קריית ביאליק">קריית ביאליק</option>
+            <option value="קריית גת">קריית גת</option>
+            <option value="קריית ים">קריית ים</option>
+            <option value="קריית מלאכי">קריית מלאכי</option>
+            <option value="קריית מוצקין">קריית מוצקין</option>
+            <option value="קריית נטפים ">קריית נטפים </option>
+            <option value="קריית אונו">קריית אונו</option>
+            <option value="קריית שמונה">קריית שמונה</option>
+            <option value="רביבים ">רביבים </option>
+            <option value="רחובות">רחובות</option>
+            <option value="רמת גן">רמת גן</option>
+            <option value="רמת השרון">רמת השרון</option>
+            <option value="רמת יוחנן ">רמת יוחנן </option>
+            <option value="רמת מגשימים ">רמת מגשימים </option>
+            <option value="רמת רחל ">רמת רחל </option>
+            <option value="רעננה">רעננה</option>
+            <option value="ראשון לציון">ראשון לציון</option>
+            <option value="רהט">רהט</option>
+            <option value="רמלה">רמלה</option>
+            <option value="רמת ישי ">רמת ישי </option>
+            <option value="רשפים ">רשפים </option>
+            <option value="שדרות">שדרות</option>
+            <option value="שפיים ">שפיים </option>
+            <option value="שפרעם">שפרעם</option>
+            <option value="שער הגולן ">שער הגולן </option>
+            <option value="שדה נחום ">שדה נחום </option>
+            <option value="שדות ים ">שדות ים </option>
+            <option value="שמיר ">שמיר </option>
+            <option value="תל אביב">תל אביב</option>
+            <option value="תל יוסף ">תל יוסף </option>
+            <option value="תמרת ">תמרת </option>
+            <option value="תל מונד ">תל מונד </option>
+        </select><br><br>
+
+
+
+        <label for="occupation">עיסוק (אופציונלי):</label>
+        <input type="text" id="occupation" name="occupation"><br>
+
+        <label for="description">תיאור קצר (עד 250 תווים):</label>
+        <textarea id="description" name="description" maxlength="250" required></textarea><br>
+
+        <label for="image">תמונות:</label>
+        <input type="file" id="image" name="image" accept="image/*" required><br>
+
+        <input type="submit" value="פרסמי">
+    </form>
+
+    <h2>הרווקים שלנו</h2>
+    <ul>
+        {% for post in posts %}
+        <li>
+            <p>שם: {{ post.name }}</p>
+            <p>גיל: {{ post.age }}</p>
+            <p>עיר: {{ post.city }}</p>
+            <p>עיסוק: {{ post.occupation }}</p>
+            <p>תיאור קצר: {{ post.description }}</p>
+            <!-- הוספת תנאי והתמונה -->
+            {% if post.image %}
+                <img src="{{ url_for('static', filename=post.image) }}" alt="תמונות">
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
