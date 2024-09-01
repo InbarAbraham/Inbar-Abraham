@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>הרשמה</title>
+    <style>
+        /* הסגנונות שלך */
+        body {
+            background-color: #FFC0CB;
+            font-family: Calibri, sans-serif;
+            direction: rtl;
+            text-align: right;
+        }
+
+        form {
+            max-width: 300px;
+            margin: auto;
+        }
+
+        label {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .dob-fields {
+            display: flex;
+            gap: 10px;
+            margin-top: 5px;
+        }
+
+        select, input[type="text"], input[type="email"], input[type="password"], input[type="file"] {
+            padding: 8px;
+            font-family: Calibri, sans-serif;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .dob-fields select {
+            flex: 1;
+        }
+
+        input[type="submit"] {
+            padding: 10px;
+            font-family: Calibri, sans-serif;
+            background-color: #ff69b4;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #ff85c1;
+        }
+
+        #error-message {
+            color: red;
+            text-align: center;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>הרשמה</h1>
+    <form id="register-form" action="/register" method="post" enctype="multipart/form-data">
+        <!-- שאר השדות שלך -->
+        <label for="first_name">שם פרטי:
+            <input type="text" id="first_name" name="first_name" required>
+        </label>
+
+        <label for="last_name">שם משפחה:
+            <input type="text" id="last_name" name="last_name" required>
+        </label>
+
+        <label>תאריך לידה:
+            <div class="dob-fields">
+                <select id="dob_day" name="dob_day" required>
+                    <option value="">יום</option>
+                    <!-- אפשר למלא את האפשרויות ידנית או באמצעות JavaScript -->
+                    <script>
+                        for (let day = 1; day <= 31; day++) {
+                            document.write(`<option value="${day}">${day}</option>`);
+                        }
+                    </script>
+                </select>
+                <select id="dob_month" name="dob_month" required>
+                    <option value="">חודש</option>
+                    <option value="1">ינואר</option>
+                    <option value="2">פברואר</option>
+                    <option value="3">מרץ</option>
+                    <option value="4">אפריל</option>
+                    <option value="5">מאי</option>
+                    <option value="6">יוני</option>
+                    <option value="7">יולי</option>
+                    <option value="8">אוגוסט</option>
+                    <option value="9">ספטמבר</option>
+                    <option value="10">אוקטובר</option>
+                    <option value="11">נובמבר</option>
+                    <option value="12">דצמבר</option>
+                </select>
+                <select id="dob_year" name="dob_year" required>
+                    <option value="">שנה</option>
+                    <script>
+                        const currentYear = new Date().getFullYear();
+                        for (let year = 1900; year <= currentYear; year++) {
+                            document.write(`<option value="${year}">${year}</option>`);
+                        }
+                    </script>
+                </select>
+            </div>
+        </label>
+
+        <label for="email">מייל:
+            <input type="email" id="email" name="email" required>
+        </label>
+
+        <label for="password">סיסמה:
+            <input type="password" id="password" name="password" required>
+        </label>
+
+        <!-- שדה העלאת תמונה -->
+        <label for="image">העלאת תמונת פנים (להזדהות):
+            <input type="file" id="image" name="image" accept="image/*" required>
+        </label>
+
+        <input type="submit" value="הרשמה">
+        <div id="error-message"></div>
+    </form>
+
+    <script>
+        document.getElementById('register-form').addEventListener('submit', async function (event) {
+            event.preventDefault();
+
+            const formData = new FormData(this);
+            const response = await fetch('/analyze', {
+                method: 'POST',
+                body: formData
+            });
+
+            const result = await response.text();
+            const genderMatch = result.includes('Female') && parseFloat(result.split('Female:')[1].split('%')[0]) >= 90;
+
+            if (genderMatch) {
+                this.submit();
+            } else {
+                document.getElementById('error-message').innerText = 'נא לפנות למנהל';
+            }
+        });
+    </script>
+</body>
+</html>
