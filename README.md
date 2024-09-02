@@ -4,15 +4,21 @@
 
 **Project Description**
 
-This project is a web application designed for a community of women seeking relationships. Developed using Python, Flask, and modern frontend technologies—HTML/CSS—the application provides a platform for women to register, log in, and post profiles of single men. It also features a chat page (in development) for direct communication between users.
+This project is a web application designed for a community of women seeking relationships.
+Developed using Python, Flask, and modern frontend technologies—HTML/CSS.
+The application provides a platform for women to register, log in, and post profiles of single men.
+It also features a chat page (in development) for direct communication between users.
 
 **Features**
 
-User Registration: Women can register by providing personal details such as name, email, date of birth, and a profile photo. The photo is analyzed using the DeepFace library in Python to verify the user's gender, ensuring that only women can complete the registration process.
-Face Analysis: The uploaded photo is analyzed using the DeepFace library in Python to determine gender. The registration is completed only if the detected gender matches the expected value with at least 90% confidence.
+User Registration: Women can register by providing personal details such as name, email, date of birth, and a profile photo.
+The photo is analyzed using the DeepFace library in Python to verify the user's gender, ensuring that only women can complete the registration process.
+Face Analysis: The uploaded photo is analyzed using the DeepFace library in Python to determine gender.
+The registration is completed only if the detected gender matches the expected value with at least 90% confidence.
 Login: Users can log in using their email and password.
 Profile Posting Page: Registered users can create posts for new singles or browse through profiles of singles posted by other users.
 Chat Page (In Development): A feature for continuous communication between users, allowing for direct messaging and interaction.
+
 **Technologies Used:**
 
 Python: For backend development.
