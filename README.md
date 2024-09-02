@@ -16,7 +16,9 @@ Chat Page (In Development): A feature for continuous communication between users
 **Technologies Used:**
 
 Python: For backend development.
+
 Flask: For creating the web application.
+
 HTML/CSS: For frontend development.
 
 **Game Overview**
