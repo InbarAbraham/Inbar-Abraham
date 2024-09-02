@@ -1,6 +1,7 @@
 # Inbar-Abraham
 **The One** -Women’s Dating Community Web Application
 
+
 **Project Description**
 
 This project is a web application designed for a community of women seeking relationships. Developed using Python, Flask, and modern frontend technologies—HTML/CSS—the application provides a platform for women to register, log in, and post profiles of single men. It also features a chat page (in development) for direct communication between users.
