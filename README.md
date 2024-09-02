@@ -1,2 +1,2 @@
 # Inbar-Abraham
-Developing a website dedicated to a community of women seeking meaningful relationships.
+**The One-Women’s Dating Community Web Application**
