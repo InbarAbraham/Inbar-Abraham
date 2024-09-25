@@ -1,9 +1,14 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, send_from_directory, jsonify
 from werkzeug.security import generate_password_hash, check_password_hash
 import os
 from deepface import DeepFace
 
 app = Flask(__name__)
+
+# נתיב שמטפל בבקשת favicon.ico
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory(os.path.join(app.root_path, 'static'), 'favicon.ico', mimetype='image/vnd.microsoft.icon')
 
 # הגדרת נתיב לתמונות
 UPLOAD_FOLDER = 'uploads'
@@ -101,31 +106,34 @@ def home():
 @app.route('/analyze', methods=['POST'])
 def analyze():
     if 'image' not in request.files:
-        return "No image uploaded."
-
-    image = request.files['image']
+        return jsonify({"error": "No image uploaded."})
     
-    # שמירת התמונה בתיקייה
-    if image:
+    image = request.files['image']
+   
+    if image.filename == '':
+        return jsonify({"error": "No image selected for uploading."})
+
+    try:
         image_path = os.path.join(app.config['UPLOAD_FOLDER'], image.filename)
         image.save(image_path)
+    except Exception as save_error:
+        return jsonify({"error": f"Error saving image: {save_error}"})
 
-        # ניתוח התמונה עם DeepFace
-        try:
-            result = DeepFace.analyze(image_path, actions=['gender'])
-            if result:
-                gender_result = result[0]['gender']
-                
-                # עיגול התוצאות לשתי ספרות אחרי הנקודה
-                formatted_gender_result = {k: f"{v:.2f}" for k, v in gender_result.items()}
-                
-                return f"Gender probabilities: {formatted_gender_result}"
-            else:
-                return "No face detected or analysis failed."
-        except Exception as e:
-            return f"An error occurred: {e}"
+    try:
+        result = DeepFace.analyze(image_path, actions=['gender'])
+        if result:
+            gender_result = result[0]['gender']
+            formatted_gender_result = {k: f"{v:.2f}" for k, v in gender_result.items()}
+            return jsonify({"gender": formatted_gender_result})
+        else:
+            return jsonify({"error": "No face detected or analysis failed."})
+    except Exception as analysis_error:
+        return jsonify({"error": f"An error occurred: {analysis_error}"})
 
-    return "Failed to process the image."
+# נתיב ראשי שמפנה לעמוד רישום
+@app.route('/')
+def index():
+    return redirect(url_for('register'))
 
 # הרצת השרת
 if __name__ == '__main__':
