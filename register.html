@@ -144,15 +144,35 @@
                 body: formData
             });
 
-            const result = await response.text();
-            const genderMatch = result.includes('Female') && parseFloat(result.split('Female:')[1].split('%')[0]) >= 90;
+            if (!response.ok) {
+                console.error('Failed to fetch analyze result.');
+                document.getElementById('error-message').innerText = 'Failed to analyze image. Please try again.';
+                return;
+            }
 
-            if (genderMatch) {
+            try {
+                const resultText = await response.text();  // קבלת התשובה כטקסט
+                console.log('Analysis result:', resultText);  // הדפסת תוצאת הניתוח כטקסט
+        
+                // ניתוח התוצאה
+                const resultJson = JSON.parse(resultText); // המרת הטקסט ל-JSON
+                const femalePercentage = parseFloat(resultJson.gender.Woman || 0);
+                console.log('Female percentage:', femalePercentage);  // הדפסת אחוז זיהוי כאישה
+
+                if (femalePercentage >= 90) {
+                console.log('Gender matches female with high confidence.');
                 this.submit();
-            } else {
-                document.getElementById('error-message').innerText = 'נא לפנות למנהל';
+                } else {
+                    console.log('Gender does not match female or confidence too low.');
+                    document.getElementById('error-message').innerText = 'נא לפנות למנהל';
+                }
+            } catch (error) {
+                console.error('Error parsing JSON response:', error);
+                document.getElementById('error-message').innerText = 'Error processing analysis result.';
             }
         });
     </script>
+    
+    
 </body>
 </html>
