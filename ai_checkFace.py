@@ -1,3 +1,6 @@
+#import os 
+#os.system ("pip install tf-keras")
+
 from deepface import DeepFace
 
 # ניתוח תמונה לדוגמה
