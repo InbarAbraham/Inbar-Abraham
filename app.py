@@ -130,7 +130,7 @@ def analyze():
     except Exception as analysis_error:
         return jsonify({"error": f"An error occurred: {analysis_error}"})
 
-# נתיב ראשי שמפנה לעמוד רישום
+# נתיב ראשי המפנה לעמוד רישום
 @app.route('/')
 def index():
     return redirect(url_for('register'))
