@@ -53,3 +53,24 @@ The photo undergoes gender analysis. If the result meets the criteria, registrat
 
 This community website project was developed by Inbar Abraham in 2024.  
 If you have any questions, feedback, or suggestions, please feel free to reach out.
+
+
+---
+
+## **Installation Instructions**
+
+To set up the project locally, run the following commands:
+
+```bash
+git clone https://github.com/InbarAbraham/The-One.git
+cd The-One
+pip install flask
+pip install deepface
+pip install tf-keras
+sudo apt-get update && sudo apt-get install -y libgl1-mesa-glx
+python app.py
+
+The application will be available at http://127.0.0.1:5000/.
+
+
+
