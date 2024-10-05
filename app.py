@@ -3,6 +3,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 import os
 from deepface import DeepFace
 
+
 app = Flask(__name__)
 
 # נתיב שמטפל בבקשת favicon.ico
